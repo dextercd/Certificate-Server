@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style>
+
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+form {
+	max-width: 960px;
+	margin: 2em auto;
+}
+
+form > * {
+	padding-top: 25px;
+}
+
+form > *:first-child {
+	padding-top: 0;
+}
+
+.form-item label {
+	display: block;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<form action="/get-certificate">
+	<div class="form-item">
+		<label for="name">The name you want on the certificate.</label>
+		<input type="text" id="name" name="name" required="true">
+	</div>
+
+	<div class="form-item">
+		<label for="serial-number">Serial number of your Featherweight. It should be two letters followed by six numbers.</label>
+		<input type="text" id="serial-number" name="serial" pattern="[a-zA-Z]{2}\d{6}" placeholder="Example: EF123456" required="true">
+	</div>
+
+	<div class="form-item">
+		<input type="submit" value="Get your certificate">
+	</div>
+</form>
+
+</body>
+
+</html>

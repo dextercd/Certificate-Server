@@ -1,0 +1,65 @@
+\documentclass[a4paper]{article}
+
+\usepackage[landscape]{geometry}
+\usepackage{verbatim}
+
+\usepackage[svgnames]{pstricks}
+\usepackage{auto-pst-pdf}
+
+\usepackage{psvectorian}
+
+\usepackage{xcolor}
+
+\usepackage{calligra}
+
+% Disable line numbers
+\pagenumbering{gobble}
+
+% We don't use the header, so reclaim this space
+\setlength{\voffset}{-0.75in}
+
+\begin{document}
+
+\definecolor{bg}{RGB}{255, 242, 204}
+\definecolor{subtle}{RGB}{242, 219, 150}
+
+\pagecolor{bg}
+
+\begin{center}
+	\psvectorian[height=7\baselineskip, color=subtle]{46}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\calligra {\Huge Singer Featherweight Certificate}
+\end{center}
+
+\vspace{2cm}
+
+\def\setverb{\def\do##1{\catcode`##1=12}\dospecials }
+\def\verbinput#1{\bgroup \setverb \input{#1}\unskip\egroup}
+
+\begin{center}
+
+The Singer Featherweight sewing machine owned by
+
+\vspace{0.3cm}%
+{\Large \verbinput{name.txt}}%
+\vspace{1cm}
+
+Bearing the serial number
+
+\vspace{0.3cm}%
+{\Large \verbinput{serial.txt}}%
+\vspace{1cm}
+
+Was commissioned on
+
+\vspace{0.3cm}%
+{\Large \verbinput{date.txt}}.%
+\vspace{1cm}
+
+\end{center}
+
+\end{document}
