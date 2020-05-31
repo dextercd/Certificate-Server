@@ -1,6 +1,21 @@
 \documentclass[a4paper]{article}
 
-\usepackage[landscape]{geometry}
+\usepackage[landscape,top=0.5cm,bottom=20pt,hmargin=5pt,includefoot,footskip=0pt]{geometry}
+
+\usepackage{xcolor}
+
+\definecolor{bg}{RGB}{255, 242, 204}
+\definecolor{littlesubtle}{RGB}{222, 184, 69}
+\definecolor{subtle}{RGB}{242, 219, 150}
+
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\renewcommand{\headrulewidth}{0pt} % remove lines
+\renewcommand{\footrulewidth}{0pt}
+
+\lfoot{\textcolor{littlesubtle}{Het Singer Winkeltje is a Dutch company registered with the KvK under nr.62567489.}}
+\rfoot{\textcolor{littlesubtle}{www.hetsingerwinkeltje.nl}}
+
 \usepackage{verbatim}
 
 \usepackage[svgnames]{pstricks}
@@ -8,20 +23,12 @@
 
 \usepackage{psvectorian}
 
-\usepackage{xcolor}
-
 \usepackage{calligra}
 
 % Disable line numbers
 \pagenumbering{gobble}
 
-% We don't use the header, so reclaim this space
-\setlength{\voffset}{-0.75in}
-
 \begin{document}
-
-\definecolor{bg}{RGB}{255, 242, 204}
-\definecolor{subtle}{RGB}{242, 219, 150}
 
 \pagecolor{bg}
 
