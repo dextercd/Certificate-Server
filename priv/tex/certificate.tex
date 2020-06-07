@@ -1,0 +1,75 @@
+\input luaotfload.sty
+\input tikz.tex
+
+\def\setverb{\def\do##1{\catcode`##1=12}\dospecials\relax}
+\def\verbinput#1{\bgroup \setverb \input{#1}\unskip\egroup}
+
+% A4 landscape format
+\pagewidth=297mm
+\pageheight=210mm
+\pageleftoffset=.4cm
+\pagerightoffset=.4cm
+\pagetopoffset=2cm
+\pagebottomoffset=1.2cm
+\hsize=\dimexpr (\pagewidth - \pageleftoffset - \pagerightoffset)\relax
+\vsize=\dimexpr (\pageheight - \pagetopoffset - \pagebottomoffset)\relax
+
+\font\headfont=callig15 at 45pt
+
+\font\small="texgyrepagella-regular.otf" at 10pt
+\font\normal="texgyrepagella-regular.otf" at 15pt
+\font\large="texgyrepagella-regular.otf" at 20pt
+\normal
+
+\definecolor{bg}{rgb}{1.0, 0.94902, 0.8}
+\definecolor{littlesubtle}{rgb}{0.870588, 0.721569, 0.270588}
+\definecolor{subtle}{rgb}{0.94902, 0.858824, 0.588235}
+
+\tikzset{
+	pgfornamentstyle/.style={color=subtle}
+}
+
+\footline={\small Het Singer Winkeltje is a Dutch company registered with the KvK under nr.62567489.\hfil www.hetsingerwinkeltje.nl}
+
+\def\pgfornamentimport#1{%
+\begingroup
+\def\i{\pgfusepath{clip}}%
+\def\k{\pgfusepath{stroke}}%
+\let\o\pgfpathclose
+\let\s\pgfusepathqfillstroke
+\def\p ##1##2{\pgfqpoint{##1bp}{##2bp}}%
+\def\m ##1 ##2 {\pgfpathmoveto{\p{##1}{##2}}}%
+\def\l ##1 ##2 {\pgfpathlineto{\p{##1}{##2}}}%
+\def\r ##1 ##2 ##3 ##4 {\pgfpathrectangle{\p{##1}{##2}}{\p{##3}{##4}}}%
+\def\c ##1 ##2 ##3 ##4 ##5 ##6 {%
+\pgfpathcurveto{\p{##1}{##2}}{\p{##3}{##4}}{\p{##5}{##6}}}%
+\input vectorian#1.pgf%
+\endgroup}%  
+
+\centerline{\tikzpicture[pgfornamentstyle]
+   \pgftransformscale{1}%
+   \pgfornamentimport{46}%
+\endtikzpicture}
+
+\vskip 1cm
+
+\centerline{\headfont Singer Featherweight Certificate}
+
+\vskip 2cm
+
+\centerline{The singer featherweight sewing machine owned by}
+\vskip .2cm
+\centerline{\large \verbinput{name.txt}}
+\vskip .5cm
+
+\centerline{bearing the serial number}
+\vskip .2cm
+\centerline{\large \verbinput{serial.txt}}
+\vskip .5cm
+
+\centerline{Was commissioned on}
+\vskip .2cm
+\centerline{\large \verbinput{date.txt}}
+\vskip .5cm
+
+\bye
