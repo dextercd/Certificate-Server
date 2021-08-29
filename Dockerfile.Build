@@ -1,0 +1,9 @@
+FROM debian:buster
+RUN apt-get update && apt-get install -y erlang
+RUN apt-get install -y wget
+RUN apt-get install -y git
+RUN cd /root; wget https://s3.amazonaws.com/rebar3/rebar3 && chmod +x rebar3
+COPY rebar.config rebar.lock release.sh /root/certificate-server/
+COPY priv /root/certificate-server/priv
+COPY src /root/certificate-server/src
+ENTRYPOINT cd /root/certificate-server; ./release.sh
